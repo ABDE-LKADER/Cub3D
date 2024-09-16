@@ -12,20 +12,24 @@
 
 NAME		=	Cub3D
 
-SRCS		=	$(wildcard *.c) $(wildcard Parcer/*.c)
+SRCS		=	Cub3D.c $(shell find Parcer/ -name "*.c")
 
-OBJS		=	$(SRCS:.c=.o)
+OBJS_DIR	=	.Objects/
+OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
 
+MLX			=	MLX42/MLX
 MLX42		=	MLX42
-HEADER		=	includes/Cub3D.h
+HEADER		=	Includes/Cub3D.h
 
 CLIB		=	CLib
 ARLIB		=	CLib/libar.a
 
 CC			=	cc
 FLAGS		=	-Wall -Wextra -Werror
-SHORT		=	-L$(CLIB) -lar
 RM			=	rm -fr
+
+SHORT		=	-L$(CLIB) -lar -L $(MLX) -l mlx42 -lglfw
+INCLUDES	=	-I Includes -I $(MLX42)/include/MLX42/
 
 GREEN		=	"\033[1;32m"
 YELOW		=	"\033[1;33m"
@@ -46,32 +50,31 @@ finish:
 	@printf "\n"
 
 removing:
-	@if [ -d $(MLX42)/MLX ]; then rm -rf $(MLX42)/MLX; fi
+	@if [ -d $(MLX) ]; then rm -rf $(MLX); fi
 
 $(CLIB):
 	@make -C $(CLIB) --no-print-directory
 
 $(MLX42):
-	@git submodule init
-	@cmake -B $(MLX42)/MLX -S $(MLX42)
-	@make -C $(MLX42)/MLX --no-print-directory
+	@git submodule update --init
+	@cmake -B $(MLX) -S $(MLX42)
+	@make -C $(MLX) --no-print-directory
 
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $^ $(SHORT) -o $(NAME)
 
-%.o: %.c $(HEADER) $(ARLIB)
-	@$(CC) $(FLAGS) -I includes -c $< -o $@
-	@printf $(REDCL)"."$(RESET)
+$(OBJS): $(OBJS_DIR)%.o: %.c $(HEADER) $(ARLIB)
+	@mkdir -p $(dir $@)
+	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+	@printf $(GREEN)"."$(RESET)
 
 clean:
-	@$(RM) $(OBJS)
-	@$(RM) $(OBJS_BONUS)
+	@$(RM) $(OBJS_DIR)
 	@make clean -C $(CLIB) --no-print-directory
 	@echo $(YELOW)Cleaning up 🧹💫$(RESET)
 
 fclean: removing clean
 	@$(RM) $(NAME)
-	@$(RM) $(NAME_BONUS)
 	@make fclean -C $(CLIB) --no-print-directory
 	@echo $(REDCL)Purging all files 🗑️$(RESET)
 

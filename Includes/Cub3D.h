@@ -14,5 +14,8 @@
 # define CUB3D_H
 
 # include <stdio.h>
+# include <stdbool.h>
+# include <stdlib.h>
+# include "MLX42.h"
 
 #endif
