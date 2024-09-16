@@ -18,4 +18,6 @@
 # include <stdlib.h>
 # include "MLX42.h"
 
+void	parcer(int ac, char **av);
+
 #endif
