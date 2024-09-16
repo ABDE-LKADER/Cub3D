@@ -1,26 +1,19 @@
 Custom License for Cub3D Project
 
-Copyright (c) 2024 abde0ba ABDE-LKADER
+Copyright (c) 2024 abde0ba, ABDE-LKADER
 
-1. Permission
-You are permitted to:
-  Contribute to this project by submitting pull requests or patches.
-  Fork this project to create your own private copy.
-  Collaborate on this project.
+Permission is hereby granted to contribute to this project by submitting pull requests or patches, fork this project to create your own private copy, and collaborate on this project, subject to the following conditions:
 
-2. Restrictions
-You may not:
-  Copy, redistribute, or publish this project or any derivative work based on it.
-  Use this project for personal or commercial purposes outside the scope of collaboration with ABDE-LKADER and abde0ba.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the project.
 
-3. Usage
-  This project may be forked for personal use only. All forks must remain private and are subject to the same restrictions as the original project.
+You may not copy, redistribute, or publish this project or any derivative work based on it. You may not use this project for personal or commercial purposes outside the scope of collaboration with ABDE-LKADER and abde0ba.
 
-4. Attribution
-  Any contributions must be attributed to ABDE-LKADER and abde0ba.
+This project may be forked for personal use only. All forks must remain private and are subject to the same restrictions as the original project.
 
-5. Termination
-  The permissions granted under this license will terminate automatically if you breach any of its terms.
+Any contributions must be attributed to ABDE-LKADER and abde0ba.
 
-THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+The permissions granted under this license will terminate automatically if you breach any of its terms.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 For any questions or clarifications, please contact ABDE-LKADER or abde0ba directly.
