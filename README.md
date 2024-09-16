@@ -10,11 +10,13 @@
 
 ## Installation
 
-<!-- Add installation instructions here -->
+   ```bash
+   ```
 
 ## How to Run
 
-<!-- Add instructions on how to run the project here -->
+   ```bash
+   ```
 
 ## Usage
 
