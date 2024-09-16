@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cub3D.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 10:33:41 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/16 10:37:21 by abadouab         ###   ########.fr       */
+/*   Created: 2023/11/01 18:39:17 by abadouab          #+#    #+#             */
+/*   Updated: 2023/12/07 21:15:08 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "CLib.h"
 
-# include <stdio.h>
-# include <stdbool.h>
-# include <stdlib.h>
-# include "MLX42.h"
-
-#endif
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 == *s2)
+		(TRUE) && (s1++, s2++);
+	return (((unsigned char)*s1) - ((unsigned char)*s2));
+}

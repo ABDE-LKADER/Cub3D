@@ -21,7 +21,7 @@ static t_allocate	**block_loc(void)
 
 void	*allocate(size_t count, size_t size)
 {
-	t_allocate **collec;
+	t_allocate	**collec;
 	t_allocate	*new;
 
 	collec = block_loc();
