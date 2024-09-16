@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/19 17:23:22 by abadouab          #+#    #+#              #
-#    Updated: 2024/09/16 12:27:02 by abadouab         ###   ########.fr        #
+#    Created: 2024/09/16 12:39:22 by abadouab          #+#    #+#              #
+#    Updated: 2024/09/16 14:34:03 by abadouab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	Cub3D
 
-SRCS		=	$(wildcard *.c)
+SRCS		=	$(wildcard *.c) $(wildcard Parcer/*.c)
 
 OBJS		=	$(SRCS:.c=.o)
-HEADER		=	includes/Cub3D.h
 
 MLX42		=	MLX42
+HEADER		=	includes/Cub3D.h
 
 CLIB		=	CLib
 ARLIB		=	CLib/libar.a
@@ -59,9 +59,9 @@ $(MLX42):
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $^ $(SHORT) -o $(NAME)
 
-$(OBJS): %.o: %.c $(HEADER) $(ARLIB)
-	@$(CC) $(FLAGS) -c -I $(CLIB) -I -I $(HDMLX) -I includes $< -o $@
-	@printf $(GREEN)"."$(RESET)
+%.o: %.c $(HEADER) $(ARLIB)
+	@$(CC) $(FLAGS) -I includes -c $< -o $@
+	@printf $(REDCL)"."$(RESET)
 
 clean:
 	@$(RM) $(OBJS)
