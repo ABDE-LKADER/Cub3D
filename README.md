@@ -27,12 +27,16 @@
 
 2. **Build the Game**
 
-<!-- Add instructions on how to run the project here -->
-
+   ```bash
+   make
+   ```
 
 4. **Run the Game**
 
-<!-- Add instructions on how to run the project here -->
+   ```bash
+   ./Cub3D maps/map.ber
+   ```
+   - map.ber == use The Map You Need For Play in maps
 
 ## License
 
