@@ -45,7 +45,7 @@
 
 ## Contributing
 
-  Contributions are welcome! I'd like you to please follow the guidelines for submitting pull requests and issues. For more details, refer to the ```CONTRIBUTING.md``` file if available.
+  Contributions are welcome! I'd like you to please follow the guidelines for submitting pull requests and issues. For more details, refer to the ```CONTRIBUTING``` file if available.
 
 ---
 Happy coding! ^_^
