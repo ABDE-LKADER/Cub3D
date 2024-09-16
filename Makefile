@@ -12,7 +12,8 @@
 
 NAME		=	Cub3D
 
-SRCS		=	Cub3D.c $(shell find Parcer/ -name "*.c")
+SRCS		=	Cub3D.c \
+				Parcer/parcer.c
 
 OBJS_DIR	=	.Objects/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
