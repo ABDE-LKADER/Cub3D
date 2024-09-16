@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLib_H
-# define CLib_H
+#ifndef CLIB_H
+# define CLIB_H
 
 # include <unistd.h>
 # include <stdlib.h>
