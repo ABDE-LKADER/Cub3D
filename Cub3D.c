@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:33:45 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/16 10:34:51 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/16 10:52:19 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ int	main(int ac, char **av)
 {
 	(void) ac;
 	(void) av;
+	printf("Cub3d\n");
 }
