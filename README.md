@@ -11,11 +11,13 @@
 ## Installation
 
    ```bash
+   make
    ```
 
 ## How to Run
 
    ```bash
+   make
    ```
 
 ## Usage
