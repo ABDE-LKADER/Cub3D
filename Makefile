@@ -6,7 +6,7 @@
 #    By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 17:23:22 by abadouab          #+#    #+#              #
-#    Updated: 2024/09/16 12:13:34 by abadouab         ###   ########.fr        #
+#    Updated: 2024/09/16 12:27:02 by abadouab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ YELOW		=	"\033[1;33m"
 REDCL		=	"\033[1;31m"
 RESET		=	"\033[0m"
 
-all: $(MLX42) 
+all: $(MLX42) start $(CLIB) $(NAME) finish
 
 start:
 	@printf "\n"
@@ -46,19 +46,15 @@ finish:
 	@printf "\n"
 
 removing:
-	@if [ -d $(MLX42)/MLX ]; then \
-		rm -rf $(MLX42)/MLX; \
-	fi
-
-
+	@if [ -d $(MLX42)/MLX ]; then rm -rf $(MLX42)/MLX; fi
 
 $(CLIB):
 	@make -C $(CLIB) --no-print-directory
 
 $(MLX42):
 	@git submodule init
-	@cmake -B MLX42/MLX -S MLX42
-	@make -C MLX42/MLX --no-print-directory
+	@cmake -B $(MLX42)/MLX -S $(MLX42)
+	@make -C $(MLX42)/MLX --no-print-directory
 
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $^ $(SHORT) -o $(NAME)
@@ -80,8 +76,5 @@ fclean: removing clean
 	@echo $(REDCL)Purging all files 🗑️$(RESET)
 
 re: fclean all
-
-run: all clean
-		clear && ./minishell
 
 .PHONY: $(CLIB) $(MLX42)
