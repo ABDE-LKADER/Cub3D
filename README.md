@@ -10,11 +10,15 @@
 
 ## Installation
 
-<!-- Add installation instructions here -->
+   ```bash
+   make
+   ```
 
 ## How to Run
 
-<!-- Add instructions on how to run the project here -->
+   ```bash
+   make
+   ```
 
 ## Usage
 
@@ -27,12 +31,16 @@
 
 2. **Build the Game**
 
-<!-- Add instructions on how to run the project here -->
-
+   ```bash
+   make
+   ```
 
 4. **Run the Game**
 
-<!-- Add instructions on how to run the project here -->
+   ```bash
+   ./Cub3D maps/map.ber
+   ```
+   - map.ber == use The Map You Need For Play in maps
 
 ## License
 
@@ -45,7 +53,7 @@
 
 ## Contributing
 
-  Contributions are welcome! I'd like you to please follow the guidelines for submitting pull requests and issues. For more details, refer to the ```CONTRIBUTING.md``` file if available.
+  Contributions are welcome! I'd like you to please follow the guidelines for submitting pull requests and issues. For more details, refer to the ```CONTRIBUTING``` file if available.
 
 ---
 Happy coding! ^_^
