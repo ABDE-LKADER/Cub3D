@@ -13,7 +13,8 @@
 NAME		=	Cub3D
 
 SRCS		=	Cub3D.c \
-				Parcer/parcer.c
+				Parcer/parcer.c \
+				Error/error_handler.c
 
 OBJS_DIR	=	.Objects/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
@@ -30,7 +31,7 @@ FLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -fr
 
 SHORT		=	-L$(CLIB) -lar -L $(MLX) -l mlx42 -lglfw
-INCLUDES	=	-I Includes -I $(MLX42)/include/MLX42/
+INCLUDES	=	-I $(CLIB) -I Includes -I $(MLX42)/include/MLX42/
 
 GREEN		=	"\033[1;32m"
 YELOW		=	"\033[1;33m"

@@ -14,6 +14,11 @@
 
 int	main(int ac, char **av)
 {
+	t_cub3d		data;
+
 	parcer(ac, av);
+	data.window.mlx = mlx_init(1080, 720, "Cub3D", false);
+	mlx_put_string(data.window.mlx, "1337", 10, 10);
+	mlx_loop(data.window.mlx);
 	return (EXIT_SUCCESS);
 }
