@@ -14,6 +14,8 @@
 
 void	parcer(int ac, char **av)
 {
-	while (ac--)
-		printf("[ %s ]\n", *av++);
+	if (ac != 2)
+		error_hanlder(1);
+	if (!ft_strrchr(av[1], '.') || ft_strcmp(ft_strrchr(av[1], '.'), ".cub"))
+		error_hanlder(2);
 }

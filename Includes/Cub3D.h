@@ -16,8 +16,17 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <stdlib.h>
-# include "MLX42.h"
+# include <string.h>
 
+# include "CLib.h"
+# include "Types_Cub3D.h"
+
+# define GRN "\033[1;32m"
+# define YLW "\033[1;33m"
+# define RED "\033[1;31m"
+# define RST "\033[0m"
+
+void	error_hanlder(int set);
 void	parcer(int ac, char **av);
 
 #endif
