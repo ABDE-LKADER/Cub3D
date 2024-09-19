@@ -27,7 +27,7 @@ CLIB		=	CLib
 ARLIB		=	CLib/libar.a
 
 CC			=	cc
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
 RM			=	rm -fr
 
 SHORT		=	-L$(CLIB) -lar -L $(MLX) -l mlx42 -lglfw

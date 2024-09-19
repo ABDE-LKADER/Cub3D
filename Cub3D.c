@@ -12,13 +12,17 @@
 
 # include "Cub3D.h"
 
+
 int	main(int ac, char **av)
 {
 	t_cub3d		data;
 
-	parcer(ac, av);
-	data.window.mlx = mlx_init(1080, 720, "Cub3D", false);
-	mlx_put_string(data.window.mlx, "1337", 10, 10);
-	mlx_loop(data.window.mlx);
-	return (EXIT_SUCCESS);
+	ft_bzero(&data, sizeof(t_cub3d));
+	data.map.file = ac;
+	data.map.load = av[1];
+	parcer(&data);
+	// data.mlx = mlx_init(1080, 720, "Cub3D", false);
+	// mlx_put_string(data.mlx, "1337", 10, 10);
+	// mlx_loop(data.mlx);
+	return (cleanup(), EXIT_SUCCESS);
 }

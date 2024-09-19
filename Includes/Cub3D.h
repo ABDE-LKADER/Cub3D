@@ -16,7 +16,9 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <stdlib.h>
-# include <string.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <sys/stat.h>
 
 # include "CLib.h"
 # include "Types_Cub3D.h"
@@ -27,6 +29,6 @@
 # define RST "\033[0m"
 
 void	error_hanlder(int set);
-void	parcer(int ac, char **av);
+void	parcer (t_cub3d *data);
 
 #endif
