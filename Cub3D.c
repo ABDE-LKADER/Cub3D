@@ -12,7 +12,6 @@
 
 # include "Cub3D.h"
 
-
 int	main(int ac, char **av)
 {
 	t_cub3d		data;
