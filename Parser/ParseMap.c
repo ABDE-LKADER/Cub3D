@@ -6,13 +6,13 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:55 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 15:09:02 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/21 18:23:49 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cub3D.h"
 
-void	init_map_loader(t_cub3d *data)
+static void	init_map_loader(t_cub3d *data)
 {
 	char	*line;
 	int		lenline;
@@ -24,7 +24,7 @@ void	init_map_loader(t_cub3d *data)
 		if (line == NULL)
 			break ;
 		if (*line == '\n')
-			error_hanlder(INVALID_MAP_ERROR RST " : Detect New Line");
+			error_hanlder(INVALID_MAP_ERROR);
 		lenline = strlen_set(line, '\n');
 		if (lenline > data->map.longline)
 			data->map.longline = lenline;
@@ -32,7 +32,7 @@ void	init_map_loader(t_cub3d *data)
 	}
 }
 
-void	normalize_map_shape(char **grid, int longline)
+static void	normalize_map_shape(char **grid, int longline)
 {
 	int		index;
 	int		lenline;
@@ -54,7 +54,7 @@ void	normalize_map_shape(char **grid, int longline)
 	}
 }
 
-void	is_map_surrounded(t_map *map, int height)
+static void	is_map_surrounded(t_map *map, int height)
 {
 	int		width;
 	char	**grid;
@@ -69,7 +69,7 @@ void	is_map_surrounded(t_map *map, int height)
 		if (!height || !width || !grid[height + 1] || width == map->longline - 1
 			|| grid[height + 1][width] == ' ' || grid[height - 1][width] == ' '
 			|| grid[height][width + 1] == ' ' || grid[height][width - 1] == ' ')
-			error_hanlder(INVALID_MAP_ERROR RST " : Detect Invalid Surround");
+			error_hanlder(INVALID_MAP_ERROR);
 	}
 }
 
@@ -87,7 +87,7 @@ void	parse_map(t_cub3d *data)
 	}
 	init_map_loader(data);
 	if (map_invalid_symbols(data->map.load) == true)
-		error_hanlder(INVALID_MAP_ERROR RST " : Detect Invalid Symbols");
+		error_hanlder(INVALID_MAP_ERROR);
 	data->map.grid = ft_split(data->map.load, '\n');
 	normalize_map_shape(data->map.grid, data->map.longline);
 	while (data->map.grid[height])

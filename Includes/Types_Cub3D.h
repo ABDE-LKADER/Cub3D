@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:33:41 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 14:58:08 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:45:20 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "MLX42.h"
 
-# define color_t unsigned int
 # define image_t mlx_image_t
 
 // Struct for player information
@@ -57,8 +56,8 @@ typedef struct s_image
 // Struct for floor and ceiling colors
 typedef struct s_colors
 {
-	color_t			floor;		// Floor color (in RGB format)
-	color_t			ceiling;	// Ceiling color (in RGB format)
+	int			floor;		// Floor color (in RGB format)
+	int			ceiling;	// Ceiling color (in RGB format)
 }					t_colors;
 
 // Main Cub3D struct integrating all components

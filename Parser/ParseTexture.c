@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:18 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 15:09:24 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/21 18:31:44 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ bool	map_invalid_symbols(char *line)
 		i++;
 	}
 	if (player != 1)
-		error_hanlder(INVALID_MAP_ERROR RST " : Player");
+		error_hanlder(INVALID_MAP_ERROR);
 	return (false);
 }
 
 char	*parse_texture(char *object)
 {
-	char			**path;
+	int		file;
 
-	path = ft_split(object, ' ');
-	if (path == NULL || path[0] == NULL || path[1])
-		error_hanlder(INVALID_MAP_ERROR RST " TEXTURE FORMAT NOT VALID");
-	return (*path);
+	file = open(object, O_RDONLY);
+	if (file == error || close(file) == error)
+		error_hanlder(INVALID_MAP_ERROR " OK");
+	return (object);
 }
