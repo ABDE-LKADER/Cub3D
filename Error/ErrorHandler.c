@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cub3D.c                                            :+:      :+:    :+:   */
+/*   ErrorHandler.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 10:33:45 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 14:12:50 by abadouab         ###   ########.fr       */
+/*   Created: 2024/09/19 19:21:42 by abadouab          #+#    #+#             */
+/*   Updated: 2024/09/21 15:10:51 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Cub3D.h"
 
-// void	lk(void){ system("leaks Cub3D"); }
-int	main(int ac, char **av)
+void	error_hanlder(char *message)
 {
-	t_cub3d		data;
-
-	// atexit(lk);
-	ft_bzero(&data, sizeof(t_cub3d));
-	data.map.file = ac;
-	data.map.load = av[1];
-	parser(&data);
-	data.mlx = mlx_init(1080, 720, "Cub3D", false);
-	mlx_put_string(data.mlx, "1337", 10, 10);
-	mlx_loop(data.mlx);
-	return (cleanup(), EXIT_SUCCESS);
+	if (message)
+	{
+		ft_putstr_fd(RED"Error:\n"RST, STDERR_FILENO);
+		ft_putstr_fd("Cub3D: ", STDERR_FILENO);
+		ft_putstr_fd(message, STDERR_FILENO);
+		ft_putstr_fd(RST"\n", STDERR_FILENO);
+	}
+	cleanup();
+	exit(EXIT_FAILURE);
 }

@@ -6,15 +6,18 @@
 #    By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 12:39:22 by abadouab          #+#    #+#              #
-#    Updated: 2024/09/16 14:34:03 by abadouab         ###   ########.fr        #
+#    Updated: 2024/09/21 10:39:08 by abadouab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	Cub3D
 
 SRCS		=	Cub3D.c \
-				Parcer/parcer.c \
-				Error/error_handler.c
+				Parser/Parser.c \
+				Parser/ParseMap.c \
+				Parser/ParseColor.c \
+				Parser/ParseTexture.c \
+				Error/ErrorHandler.c
 
 OBJS_DIR	=	.Objects/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRCS:.c=.o))
