@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:55 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 16:55:50 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 17:34:52 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	init_map_loader(void)
 		lenline = strlen_set(line, '\n');
 		if (lenline > data()->map.longline)
 			data()->map.longline = lenline;
-		(data()->map).load = ft_strjoin((data()->map).load, line);
+		(data()->map).load = ft_strjoin(data()->map.load, line);
 	}
 }
 
@@ -88,8 +88,8 @@ void	parse_map(void)
 	init_map_loader();
 	if (map_invalid_symbols(data()->map.load) == true)
 		error_hanlder(INVALID_MAP_ERROR);
-	(data()->map).grid = ft_split((data()->map).load, '\n');
-	normalize_map_shape((data()->map).grid, (data()->map).longline);
-	while ((data()->map).grid[height])
-		is_map_surrounded(&(data()->map), height++);
+	(data()->map).grid = ft_split(data()->map.load, '\n');
+	normalize_map_shape(data()->map.grid, data()->map.longline);
+	while (data()->map.grid[height])
+		is_map_surrounded(&data()->map, height++);
 }

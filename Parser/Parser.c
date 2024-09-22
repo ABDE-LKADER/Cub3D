@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:59 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 17:28:03 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 17:32:48 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ static void	parse_elements(char *object)
 
 void	parser(void)
 {
-	int		file;
-
 	if (data()->map.file != 2)
 		error_hanlder(USAGE_ERROR);
 	if (ft_strrchr(data()->map.load, '.') == NULL
@@ -65,11 +63,10 @@ void	parser(void)
 		error_hanlder(EXTANSION_ERROR);
 	data()->colors.floor = -1;
 	data()->colors.ceiling = -1;
-	(data()->map).file = open((data()->map).load, O_RDONLY);
-	file = data()->map.file;
+	(data()->map).file = open(data()->map.load, O_RDONLY);
 	while (valid_elements() == false)
 	{
-		(data()->map).load = ft_strtrim(get_next_line(file), " \n");
+		(data()->map).load = ft_strtrim(get_next_line(data()->map.file), " \n");
 		if (data()->map.load == NULL)
 			break ;
 		parse_elements(data()->map.load);
