@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:59 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 18:22:34 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 10:57:51 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 static bool	valid_elements(t_cub3d *data)
 {
 	if (data->colors.ceiling >= 0 && data->colors.floor >= 0
-		&& data->texture.north && data->texture.south
-		&& data->texture.west && data->texture.east)
+		&& data->textures.north && data->textures.south
+		&& data->textures.west && data->textures.east)
 		return (true);
 	return (false);
 }
 
-static bool	duplicated_elements(t_cub3d *data, char set)
+bool	duplicated_elements(t_cub3d *data, char set)
 {
-	if ((set == 'N' && data->texture.north)
-		|| (set == 'S' && data->texture.south)
-		|| (set == 'W' && data->texture.west)
-		|| (set == 'E' && data->texture.east)
+	if ((set == 'N' && data->textures.north)
+		|| (set == 'S' && data->textures.south)
+		|| (set == 'W' && data->textures.west)
+		|| (set == 'E' && data->textures.east)
 		|| (set == 'F' && data->colors.floor >= 0)
 		|| (set == 'C' && data->colors.ceiling >= 0))
 		error_hanlder(INVALID_MAP_ERROR);
@@ -35,18 +35,18 @@ static bool	duplicated_elements(t_cub3d *data, char set)
 
 static void	parse_elements(t_cub3d *data, char *object)
 {
-	if (ft_strncmp(object, "NO ", ft_strlen("NO ")) == 0 && duplicated_elements(data, *object))
-		data->texture.north = parse_texture(object + 2);
-	else if (ft_strncmp(object, "SO ", ft_strlen("SO ")) == 0 && duplicated_elements(data, *object))
-		data->texture.south = parse_texture(object + 2);
-	else if (ft_strncmp(object, "WE ", ft_strlen("WE ")) == 0 && duplicated_elements(data, *object))
-		data->texture.west = parse_texture(object + 2);
-	else if (ft_strncmp(object, "EA ", ft_strlen("EA ")) == 0 && duplicated_elements(data, *object))
-		data->texture.east = parse_texture(object + 2);
-	else if (ft_strncmp(object, "F ", ft_strlen("F ")) == 0 && duplicated_elements(data, *object))
-		data->colors.floor = parse_color(object + 1);
-	else if (ft_strncmp(object, "C ", ft_strlen("C ")) == 0 && duplicated_elements(data, *object))
-		data->colors.ceiling = parse_color(object + 1);
+	if (ft_strncmp(object, "EA ", ft_strlen("EA ")) == 0)
+		data->textures.east = parse_texture(data, object);
+	else if (ft_strncmp(object, "WE ", ft_strlen("WE ")) == 0)
+		data->textures.west = parse_texture(data, object);
+	else if (ft_strncmp(object, "SO ", ft_strlen("SO ")) == 0)
+		data->textures.south = parse_texture(data, object);
+	else if (ft_strncmp(object, "NO ", ft_strlen("NO ")) == 0)
+		data->textures.north = parse_texture(data, object);
+	else if (ft_strncmp(object, "C ", ft_strlen("C ")) == 0)
+		data->colors.ceiling = parse_color(data, object);
+	else if (ft_strncmp(object, "F ", ft_strlen("F ")) == 0)
+		data->colors.floor = parse_color(data, object);
 	else if (*object)
 		error_hanlder(INVALID_MAP_ERROR);
 }

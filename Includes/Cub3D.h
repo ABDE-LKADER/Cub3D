@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:33:41 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 18:22:37 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 07:29:32 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@
 void	error_hanlder(char *message);
 void	parser(t_cub3d *data);
 void	parse_map(t_cub3d *data);
-int 	parse_color(char *object);
+int     parse_color(t_cub3d *data, char *object);
 bool	valid_player_symbols(char symbol);
 bool	map_invalid_symbols(char *line);
-char	*parse_texture(char *object);
+char	*parse_texture(t_cub3d *data, char *object);
+bool	duplicated_elements(t_cub3d *data, char set);
 
 #endif

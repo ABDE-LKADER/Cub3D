@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:20 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 18:21:58 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 10:57:34 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void	detect_invalid_symbols(char *object)
 	}
 }
 
-static int	string_to_byte(char *str)
+static short	string_to_byte(char *str)
 {
 	short	byte;
-	int		index;
+	short	index;
 
 	index = 0;
 	while (is_whitespace(str[index]))
@@ -50,13 +50,15 @@ static int	string_to_byte(char *str)
 	return (byte);
 }
 
-int	parse_color(char *object)
+int	parse_color(t_cub3d *data, char *object)
 {
 	int		red;
 	int		green;
 	int		blue;
 	char	**colors;
 
+	object++;
+	duplicated_elements(data, *data->map.load);
 	detect_invalid_symbols(object);
 	colors = ft_split(object, ',');
 	if (colors == NULL || colors[0] == NULL

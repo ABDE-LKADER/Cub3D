@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:33:41 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 16:45:20 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 08:42:51 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_cub3d
 {
 	mlx_t			*mlx;		// Pointer to Main MLX
 	t_map			map;		// Map data
-	t_textures		texture;	// Texture images
+	t_textures		textures;	// Texture images
 	t_image			images;		// Wall images
 	t_colors		colors;		// Floor and ceiling colors
 	t_player		player;		// Player information

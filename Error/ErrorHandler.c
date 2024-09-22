@@ -6,11 +6,11 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:21:42 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 18:22:38 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 09:04:36 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Cub3D.h"
+#include "Cub3D.h"
 
 void	error_hanlder(char *message)
 {

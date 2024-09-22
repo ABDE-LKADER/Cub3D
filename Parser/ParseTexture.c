@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:18 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/21 18:31:44 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 08:55:43 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,16 @@ bool	map_invalid_symbols(char *line)
 	return (false);
 }
 
-char	*parse_texture(char *object)
+char	*parse_texture(t_cub3d *data, char *object)
 {
 	int		file;
 
+	object += 2;
+	while (*object == ' ')
+		object++;
+	duplicated_elements(data, *data->map.load);
 	file = open(object, O_RDONLY);
-	if (file == error || close(file) == error)
-		error_hanlder(INVALID_MAP_ERROR " OK");
-	return (object);
+	if (file == error)
+		error_hanlder(INVALID_MAP_ERROR);
+	return (close(file), object);
 }
