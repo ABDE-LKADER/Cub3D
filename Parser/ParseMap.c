@@ -6,13 +6,13 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:55 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 07:29:33 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 16:55:50 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cub3D.h"
 
-static void	init_map_loader(t_cub3d *data)
+static void	init_map_loader(void)
 {
 	char	*line;
 	int		lenline;
@@ -20,15 +20,15 @@ static void	init_map_loader(t_cub3d *data)
 	lenline = 0;
 	while (true)
 	{
-		line = get_next_line(data->map.file);
+		line = get_next_line(data()->map.file);
 		if (line == NULL)
 			break ;
 		if (*line == '\n')
 			error_hanlder(INVALID_MAP_ERROR);
 		lenline = strlen_set(line, '\n');
-		if (lenline > data->map.longline)
-			data->map.longline = lenline;
-		data->map.load = ft_strjoin(data->map.load, line);
+		if (lenline > data()->map.longline)
+			data()->map.longline = lenline;
+		(data()->map).load = ft_strjoin((data()->map).load, line);
 	}
 }
 
@@ -73,23 +73,23 @@ static void	is_map_surrounded(t_map *map, int height)
 	}
 }
 
-void	parse_map(t_cub3d *data)
+void	parse_map(void)
 {
 	int		height;
 
 	height = 0;
 	while (true)
 	{
-		data->map.load = get_next_line(data->map.file);
-		if (data->map.load && *data->map.load == '\n')
+		data()->map.load = get_next_line(data()->map.file);
+		if (data()->map.load && *data()->map.load == '\n')
 			continue ;
 		break ;
 	}
-	init_map_loader(data);
-	if (map_invalid_symbols(data->map.load) == true)
+	init_map_loader();
+	if (map_invalid_symbols(data()->map.load) == true)
 		error_hanlder(INVALID_MAP_ERROR);
-	data->map.grid = ft_split(data->map.load, '\n');
-	normalize_map_shape(data->map.grid, data->map.longline);
-	while (data->map.grid[height])
-		is_map_surrounded(&data->map, height++);
+	(data()->map).grid = ft_split((data()->map).load, '\n');
+	normalize_map_shape((data()->map).grid, (data()->map).longline);
+	while ((data()->map).grid[height])
+		is_map_surrounded(&(data()->map), height++);
 }

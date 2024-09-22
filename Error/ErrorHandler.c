@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:21:42 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 09:04:36 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 16:55:22 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	error_hanlder(char *message)
 		ft_putstr_fd(RST"\n", STDERR_FILENO);
 	}
 	cleanup();
+	exit(data()->map.file);
 	exit(EXIT_FAILURE);
 }

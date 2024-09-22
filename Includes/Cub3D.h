@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:33:41 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 07:29:32 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 17:25:45 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@
 # define EXTANSION_ERROR "Input must have "YLW"\".cub\""RST" extension."
 # define INVALID_MAP_ERROR "Invalid "YLW"<Map>"
 
+t_cub3d	*data(void);
 void	error_hanlder(char *message);
-void	parser(t_cub3d *data);
-void	parse_map(t_cub3d *data);
-int     parse_color(t_cub3d *data, char *object);
+void	parser(void);
+void	parse_map(void);
+int     parse_color(char *object);
 bool	valid_player_symbols(char symbol);
 bool	map_invalid_symbols(char *line);
-char	*parse_texture(t_cub3d *data, char *object);
-bool	duplicated_elements(t_cub3d *data, char set);
+char	*parse_texture(char *object);
+bool	duplicated_elements(char set);
 
 #endif

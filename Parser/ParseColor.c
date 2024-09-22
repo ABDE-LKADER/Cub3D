@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:20 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 10:57:34 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/22 16:55:22 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,22 @@ static void	detect_invalid_symbols(char *object)
 	}
 }
 
-static short	string_to_byte(char *str)
+static short	string_to_byte(char *string)
 {
 	short	byte;
 	short	index;
+	char	**color;
 
 	index = 0;
-	while (is_whitespace(str[index]))
+	color = ft_split(string, ' ');
+	if (color == NULL || color[0] == NULL || color[1])
+		error_hanlder(INVALID_MAP_ERROR);
+	while (string[index] && is_whitespace(string[index]))
 		index++;
 	byte = 0;
-	while (str[index] && ft_isdigit(str[index]))
+	while (string[index] && ft_isdigit(string[index]))
 	{
-		byte = byte * 10 + str[index] - 48;
+		byte = byte * 10 + string[index] - 48;
 		if (byte > 255)
 			error_hanlder(INVALID_MAP_ERROR);
 		index++;
@@ -50,7 +54,7 @@ static short	string_to_byte(char *str)
 	return (byte);
 }
 
-int	parse_color(t_cub3d *data, char *object)
+int	parse_color(char *object)
 {
 	int		red;
 	int		green;
@@ -58,7 +62,7 @@ int	parse_color(t_cub3d *data, char *object)
 	char	**colors;
 
 	object++;
-	duplicated_elements(data, *data->map.load);
+	duplicated_elements(*data()->map.load);
 	detect_invalid_symbols(object);
 	colors = ft_split(object, ',');
 	if (colors == NULL || colors[0] == NULL

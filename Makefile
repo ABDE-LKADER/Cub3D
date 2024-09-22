@@ -6,7 +6,7 @@
 #    By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 12:39:22 by abadouab          #+#    #+#              #
-#    Updated: 2024/09/21 10:39:08 by abadouab         ###   ########.fr        #
+#    Updated: 2024/09/22 16:30:43 by abadouab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ removing:
 	@if [ -d $(MLX) ]; then rm -rf $(MLX); fi
 
 $(CLIB):
-	@make -C $(CLIB) --no-print-directory
+	@make -sC $(CLIB) --no-print-directory
 
 $(MLX42):
 	@git submodule update --init
