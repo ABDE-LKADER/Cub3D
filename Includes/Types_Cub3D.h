@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:33:41 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 16:00:30 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:45:02 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define TYPES_CUB3D_H
 
 # include "MLX42.h"
-
-# define image_t mlx_image_t
 
 // Struct for player information
 typedef struct s_player
@@ -47,17 +45,17 @@ typedef struct s_textures
 // Struct for Images
 typedef struct s_image
 {
-	image_t		*north;		// Images for north wall
-	image_t		*south;		// Images for south wall
-	image_t		*east;		// Images for east wall
-	image_t		*west;		// Images for west wall
+	mlx_image_t	*north;		// Images for north wall
+	mlx_image_t	*south;		// Images for south wall
+	mlx_image_t	*east;		// Images for east wall
+	mlx_image_t	*west;		// Images for west wall
 }				t_image;
 
 // Struct for floor and ceiling colors
 typedef struct s_colors
 {
-	int			floor;		// Floor color (in RGB format)
-	int			ceiling;	// Ceiling color (in RGB format)
+	int			floor;		// Floor color Value
+	int			ceiling;	// Ceiling color Value
 }					t_colors;
 
 // Main Cub3D struct integrating all components

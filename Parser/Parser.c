@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:59 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 17:32:48 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/23 12:58:21 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	duplicated_elements(char set)
 		|| (set == 'E' && data()->textures.east)
 		|| (set == 'F' && data()->colors.floor >= 0)
 		|| (set == 'C' && data()->colors.ceiling >= 0))
-		error_hanlder(INVALID_MAP_ERROR);
+		error_hanlder("Invalid " YELLOW "<Map>" RESET);
 	return (true);
 }
 
@@ -50,17 +50,17 @@ static void	parse_elements(char *object)
 	else if (*object)
 	{
 		close(data()->map.file);
-		error_hanlder(INVALID_MAP_ERROR);
+		error_hanlder("Invalid " YELLOW "<Map>" RESET);
 	}
 }
 
 void	parser(void)
 {
 	if (data()->map.file != 2)
-		error_hanlder(USAGE_ERROR);
+		error_hanlder(YELLOW "Usage: "RESET "./Cub3d <filename.ber>");
 	if (ft_strrchr(data()->map.load, '.') == NULL
 		|| ft_strcmp(ft_strrchr(data()->map.load, '.'), ".cub"))
-		error_hanlder(EXTANSION_ERROR);
+		error_hanlder("Input must have " YELLOW "\".cub\"" RESET " extension.");
 	data()->colors.floor = -1;
 	data()->colors.ceiling = -1;
 	(data()->map).file = open(data()->map.load, O_RDONLY);
@@ -72,6 +72,6 @@ void	parser(void)
 		parse_elements(data()->map.load);
 	}
 	if (valid_elements() == false)
-		error_hanlder(INVALID_MAP_ERROR);
+		error_hanlder("Invalid " YELLOW "<Map>" RESET);
 	parse_map();
 }

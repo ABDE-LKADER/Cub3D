@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:21:42 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 16:55:22 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:47:14 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ void	error_hanlder(char *message)
 {
 	if (message)
 	{
-		ft_putstr_fd(RED"Error:\n"RST, STDERR_FILENO);
+		ft_putstr_fd(RED"Error:\n"RESET, STDERR_FILENO);
 		ft_putstr_fd("Cub3D: ", STDERR_FILENO);
 		ft_putstr_fd(message, STDERR_FILENO);
-		ft_putstr_fd(RST"\n", STDERR_FILENO);
+		ft_putstr_fd(RESET"\n", STDERR_FILENO);
 	}
 	cleanup();
-	exit(data()->map.file);
+	if (data()->map.file != ERROR)
+		exit(data()->map.file);
 	exit(EXIT_FAILURE);
 }

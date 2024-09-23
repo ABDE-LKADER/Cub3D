@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:18 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/22 16:55:22 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:46:26 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool	map_invalid_symbols(char *line)
 		i++;
 	}
 	if (player != 1)
-		error_hanlder(INVALID_MAP_ERROR);
+		error_hanlder("Invalid " YELLOW "<Map>" RESET);
 	return (false);
 }
 
@@ -50,7 +50,7 @@ char	*parse_texture(char *object)
 		object++;
 	duplicated_elements(*data()->map.load);
 	file = open(object, O_RDONLY);
-	if (file == error)
-		error_hanlder(INVALID_MAP_ERROR);
+	if (file == ERROR)
+		error_hanlder("Invalid " YELLOW "<Map>" RESET);
 	return (close(file), object);
 }
