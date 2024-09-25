@@ -6,17 +6,21 @@
 #    By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 12:39:22 by abadouab          #+#    #+#              #
-#    Updated: 2024/09/22 16:30:43 by abadouab         ###   ########.fr        #
+#    Updated: 2024/09/25 11:57:14 by abadouab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	Cub3D
 
-SRCS		=	Cub3D.c \
+SRCS		=	Core/Cub3D.c \
 				Parser/Parser.c \
 				Parser/ParseMap.c \
 				Parser/ParseColor.c \
 				Parser/ParseTexture.c \
+				RayCast/RayCast.c \
+				RayCast/RayCalc.c \
+				Player/Movements.c \
+				Core/Render.c \
 				Error/ErrorHandler.c
 
 OBJS_DIR	=	.Objects/

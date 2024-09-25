@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:21:42 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/23 11:47:14 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/25 13:27:06 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	error_hanlder(char *message)
 	cleanup();
 	if (data()->map.file != ERROR)
 		exit(data()->map.file);
+	mlx_close_window(data()->mlx);
 	exit(EXIT_FAILURE);
 }

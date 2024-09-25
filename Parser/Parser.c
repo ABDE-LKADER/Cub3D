@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:59 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/23 12:58:21 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/23 15:34:36 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	parser(void)
 	data()->colors.floor = -1;
 	data()->colors.ceiling = -1;
 	(data()->map).file = open(data()->map.load, O_RDONLY);
+	if (data()->map.file == ERROR)
+		error_hanlder("Invalid: " YELLOW "<filename.ber>");
 	while (valid_elements() == false)
 	{
 		(data()->map).load = ft_strtrim(get_next_line(data()->map.file), " \n");

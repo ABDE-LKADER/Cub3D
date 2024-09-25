@@ -6,7 +6,7 @@
 /*   By: abadouab <abadouab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 08:11:55 by abadouab          #+#    #+#             */
-/*   Updated: 2024/09/23 11:46:26 by abadouab         ###   ########.fr       */
+/*   Updated: 2024/09/25 13:31:05 by abadouab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static void	is_map_surrounded(t_map *map, int height)
 			continue ;
 		if (grid[height][width] != '0')
 		{
-			(data()->player).x = width;
-			(data()->player).y = height;
+			data()->player.pos_x = width * TILE + (TILE / 2);
+			data()->player.pos_y = height * TILE + (TILE / 2);
 		}
 		if (!height || !width || !grid[height + 1] || width == map->longline - 1
 			|| grid[height + 1][width] == ' ' || grid[height - 1][width] == ' '
